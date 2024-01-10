@@ -1,6 +1,6 @@
 package com.example.finalprojek_079_105.navigasi
 
-interface DetailNavigasi {
+interface DestinasiNavigasi {
     val route: String
-    val titleRes: String
+    val titleRes: Int
 }

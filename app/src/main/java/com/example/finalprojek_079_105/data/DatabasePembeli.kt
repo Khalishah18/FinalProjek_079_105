@@ -6,17 +6,17 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [Pembeli::class], version = 1, exportSchema = false)
-abstract class Database : RoomDatabase(){
+abstract class DatabasePembeli : RoomDatabase(){
     abstract fun pembeliDao() : PembeliDao
 
     companion object{
         @Volatile
-        private var Instance: Database? = null
+        private var Instance: DatabasePembeli? = null
 
-        fun getDatabase(context: Context): Database {
+        fun getDatabase(context: Context): DatabasePembeli {
             return (Instance?: synchronized(this){
                 Room.databaseBuilder(context,
-                   Database::class.java,
+                    DatabasePembeli::class.java,
                     "pembeli_database")
                     .build().also { Instance=it }
             })
