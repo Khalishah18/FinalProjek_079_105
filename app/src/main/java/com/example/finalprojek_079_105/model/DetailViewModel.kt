@@ -17,7 +17,7 @@ class DetailViewModel (
 ): ViewModel(){
     private  val pembeliId : Int = checkNotNull(savedStateHandle[DetailsDestination.pembeliIdArg])
     val uiState: StateFlow<ItemDetailsUiState> =
-        repositoriPembeli.getAllPembelistream(pembeliId)
+        repositoriPembeli.getPembelistream(pembeliId)
             .filterNotNull()
             .map {
                 ItemDetailsUiState(detailPembeli = it.toDetailPembeli())

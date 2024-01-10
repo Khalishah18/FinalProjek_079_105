@@ -7,6 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.finalprojek_079_105.repositori.RepositoriPembeli
+import com.example.finalprojek_079_105.ui.halaman.ItemEditDestination
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class EditViewModel (
 ): ViewModel(){
     var pembeliUiState by mutableStateOf(UIStatePembeli())
         private set
-    private val itemId: Int = checkNotNull(savedStateHandle[ItemEditDestination.ItemIdArg])
+    private val itemId: Int by lazy { checkNotNull(savedStateHandle[ItemEditDestination.itemIdArg]) }
 
     init {
         viewModelScope.launch {

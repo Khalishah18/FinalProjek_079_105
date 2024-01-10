@@ -39,6 +39,7 @@ import com.example.finalprojek_079_105.data.Pembeli
 import com.example.finalprojek_079_105.model.DetailViewModel
 import com.example.finalprojek_079_105.model.ItemDetailsUiState
 import com.example.finalprojek_079_105.model.PenyediaViewModel
+import com.example.finalprojek_079_105.model.toPembeli
 import com.example.finalprojek_079_105.navigasi.DestinasiNavigasi
 import com.example.finalprojek_079_105.navigasi.PembeliTopAppBar
 import kotlinx.coroutines.launch
