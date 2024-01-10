@@ -1,7 +1,26 @@
 <resources>
     <string name="app_name">FinalProjek_079_105</string>
-    <string name="loading_failed">Failed to load</string>
-    <string name="retry">Retry</string>
-    <string name="loading">Loading</string>
-    <string name="mars_photo">Mars photo</string>
+    <string name="entry_siswa">Tambah Siswa</string>
+    <string name="deskripsi_no_item">Tidak ada data Pembeli. Tap + untuk menambah data</string>
+    <string name="nama">Nama Pembeli*</string>
+    <string name="alamat">Alamat Pembeli*</string>
+    <string name="telpon">No Handphone Pembeli*</string>
+    <string name="email">Email Pembeli*</string>
+    <string name="payment">Metode Pembayaran*</string>
+    <string name="nama1">Nama Pembeli :</string>
+    <string name="alamat1">Alamat Pembeli :</string>
+    <string name="telpon1">No Handphone Pembeli :</string>
+    <string name="email1">Email Pembeli :</string>
+    <string name="payment1">Metode Pembayaran :</string>
+    <string name="required_field">* required fields</string>
+    <string name="btn_submit">Submit</string>
+    <string name="detail_siswa">Detail Pembeli</string>
+    <string name="edit_siswa">Edit Pembeli</string>
+    <string name="back">Back</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus</string>
+    <string name="update">Edit</string>
+    <string name="attention">Perhatian</string>
+    <string name="tanya">Apakah anda yakin menghapus ini ?</string>
 </resources>
