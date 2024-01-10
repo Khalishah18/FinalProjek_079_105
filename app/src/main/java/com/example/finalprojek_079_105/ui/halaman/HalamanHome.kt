@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -22,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -33,15 +35,18 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojek_079_105.R
 import com.example.finalprojek_079_105.data.Pembeli
 import com.example.finalprojek_079_105.model.HomeViewModel
+import com.example.finalprojek_079_105.model.PenyediaViewModel
 import com.example.finalprojek_079_105.navigasi.DestinasiNavigasi
+import com.example.finalprojek_079_105.navigasi.PembeliTopAppBar
 
 object DestinasiHome : DestinasiNavigasi {
     override val route: String = "home"
     override val titleRes: Int = R.string.app_name
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreem(
+fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (Int) -> Unit = {},
@@ -71,9 +76,9 @@ fun HomeScreem(
             }
         },
     ) { innerPadding ->
-        val uiStateSiswa by viewModel.homeUiState.collectAsState()
+        val uiStatePembeli by viewModel.homeUiState.collectAsState()
         BodyHome(
-            itemPembeli = uiStatePembeli.listSiswa,
+            itemPembeli = uiStatePembeli.listPembeli,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),

@@ -14,8 +14,8 @@
     <string name="payment1">Metode Pembayaran :</string>
     <string name="required_field">* required fields</string>
     <string name="btn_submit">Submit</string>
-    <string name="detail_siswa">Detail Pembeli</string>
-    <string name="edit_siswa">Edit Pembeli</string>
+    <string name="detail_pembeli">Detail Pembeli</string>
+    <string name="edit_pembeli">Edit Pembeli</string>
     <string name="back">Back</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
