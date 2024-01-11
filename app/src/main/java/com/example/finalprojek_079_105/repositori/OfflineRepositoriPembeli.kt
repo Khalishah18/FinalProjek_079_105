@@ -15,6 +15,8 @@ class OfflineRepositoriPembeli(private val pembeliDao: PembeliDao) : RepositoriP
 
     override suspend fun deletePembeli(pembeli: Pembeli) = pembeliDao.delete(pembeli)
 
-    override suspend fun updatePembeli(pembeli: Pembeli){pembeliDao.update(pembeli)}
+    override suspend fun updatePembeli(pembeli: Pembeli)
+    {pembeliDao.update(pembeli)
+    }
 
 }

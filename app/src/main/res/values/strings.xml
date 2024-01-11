@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Pemesanan Album Kpop</string>
     <string name="entry_pembeli">Masukkan Data Diri</string>
+    <string name="deskripsi_no_item">Tap + untuk pemesanan</string>
     <string name="bri">BRI</string>
     <string name="bca">BCA</string>
     <string name="mandiri">Mandiri</string>

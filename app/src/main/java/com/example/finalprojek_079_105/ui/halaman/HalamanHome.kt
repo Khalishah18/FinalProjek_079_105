@@ -2,6 +2,7 @@ package com.example.finalprojek_079_105.ui.halaman
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -46,6 +46,7 @@ import com.example.finalprojek_079_105.R
 import com.example.finalprojek_079_105.data.Pembeli
 import com.example.finalprojek_079_105.model.HomeViewModel
 import com.example.finalprojek_079_105.model.PenyediaViewModel
+
 import com.example.finalprojek_079_105.navigasi.DestinasiNavigasi
 import com.example.finalprojek_079_105.navigasi.PembeliTopAppBar
 
@@ -57,8 +58,10 @@ object DestinasiHome : DestinasiNavigasi {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navigateHome: () -> Unit,
-    modifier: Modifier = Modifier
+    navigateToItemEntry: () -> Unit,
+    modifier: Modifier = Modifier,
+    onDetailClick: (Int) -> Unit = {},
+    viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold (
@@ -70,117 +73,109 @@ fun HomeScreen(
                 scrollBehavior = scrollBehavior
             )
         },
-
-        ) { innerPadding ->
-        HomeBody(
-            onNextButtonClicked = navigateHome,
-            modifier = Modifier.padding(innerPadding)
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = navigateToItemEntry,
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = stringResource(R.string.entry_pembeli)
+                )
+            }
+        },
+    ) { innerPadding ->
+        val uiStatepembeli by viewModel.homeUiState.collectAsState()
+        BodyHome(
+            itemPembeli = uiStatepembeli.listPembeli,
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxSize(),
+            onPembeliClick = onDetailClick
         )
     }
 }
 
+@Composable
+fun BodyHome(
+    itemPembeli: List<Pembeli>,
+    modifier: Modifier= Modifier,
+    onPembeliClick: (Int) -> Unit = {}
+) {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ){
+        if (itemPembeli.isEmpty()){
+            Text(
+                text = stringResource(R.string.deskripsi_no_item),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge
+            )
+        } else {
+            Listpembeli(
+                itempembeli = itemPembeli,
+                modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
+                onItemClick = {onPembeliClick(it.id)}
+            )
+        }
+    }
+}
 
 @Composable
-fun HomeBody(
-    modifier: Modifier,
-    onNextButtonClicked: () -> Unit
+fun Listpembeli(
+    itempembeli: List<Pembeli>,
+    modifier: Modifier= Modifier,
+    onItemClick: (Pembeli) -> Unit
 ) {
-
-    val image = painterResource(id = R.drawable.img)
-    val image2 = painterResource(id = R.drawable.img_1)
-    Column (
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-
-    ) {
-        OutlinedCard (
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface,
-            ),
-            border = BorderStroke(0.dp, Color.Transparent),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 25.dp)
-                .align(Alignment.CenterHorizontally)
-        ){
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = image,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop
-                )
-                Text(
-                    text = "Black Pink - BORN PINK Album",
-                    color = Color.DarkGray,
-                    fontFamily = FontFamily.SansSerif,
-                    fontSize = 25.sp,
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
-                Text(
-                    text = "RP. 1.540.000",
-                    color = Color.Gray,
-                    fontFamily = FontFamily.SansSerif,
-                    fontSize = 20.sp,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_medium))
-                        .weight(1f, false),
-                    horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-                    verticalAlignment = Alignment.Bottom
-                ){
-                    Button(
-                        modifier = Modifier.weight(1f),
-                        onClick = onNextButtonClicked
-                    ) {
-                        Text(stringResource(R.string.next))
-                    }
-                }
-                Image(
-                    painter = image2,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop
-                )
-                Text(
-                    text = "BTS - Love Your Self Album",
-                    color = Color.DarkGray,
-                    fontFamily = FontFamily.SansSerif,
-                    fontSize = 25.sp,
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
-                )
-                Text(
-                    text = "RP. 1.378.000",
-                    color = Color.Gray,
-                    fontFamily = FontFamily.SansSerif,
-                    fontSize = 20.sp,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_medium))
-                        .weight(1f, false),
-                    horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-                    verticalAlignment = Alignment.Bottom
-                ){
-                    Button(
-                        modifier = Modifier.weight(1f),
-                        onClick = onNextButtonClicked
-                    ) {
-                        Text(stringResource(R.string.next))
-                    }
-                }
-            }
+    LazyColumn(modifier = Modifier){
+        items(items = itempembeli, key = {it.id}) {
+                person ->
+            Datapembeli(
+                pembeli = person,
+                modifier = Modifier
+                    .padding(dimensionResource(id = R.dimen.padding_small))
+                    .clickable { onItemClick(person) }
+            )
         }
+    }
+}
 
+@Composable
+fun Datapembeli(
+    pembeli: Pembeli,
+    modifier: Modifier= Modifier
+) {
+    Card(
+        modifier = modifier,
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+    ) {
+        Column (
+            modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
+        ) {
+            Row (
+                modifier = Modifier.fillMaxWidth()
+            ){
+                Text(
+                    text = pembeli.nama,
+                    style = MaterialTheme.typography.titleLarge
+                )
+                Spacer(Modifier.weight(1f))
+                Icon(
+                    imageVector = Icons.Default.Phone,
+                    contentDescription = null,
+                )
+                Text(
+                    text = pembeli.telpon,
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+            Text(
+                text = pembeli.alamat,
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
     }
 }

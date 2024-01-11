@@ -18,6 +18,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.finalprojek_079_105.R
+import com.example.finalprojek_079_105.ui.halaman.AlbumScreen
+import com.example.finalprojek_079_105.ui.halaman.DestinasiAlbum
 import com.example.finalprojek_079_105.ui.halaman.DestinasiEntry
 import com.example.finalprojek_079_105.ui.halaman.DestinasiHome
 import com.example.finalprojek_079_105.ui.halaman.DetailScreen
@@ -64,18 +66,27 @@ fun HostNavigasi(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+    val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = DestinasiHome.route,
+        startDestination = DestinasiAlbum.route,
         modifier = Modifier
     ) {
+        composable(DestinasiAlbum.route){
+            AlbumScreen(
+                navigateAlbum = { navController.navigate(DestinasiHome.route) }
+            )
+        }
         composable(DestinasiHome.route){
-            HomeScreen(navigateHome = { navController.navigate(DestinasiEntry.route) })
+            HomeScreen( navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                onDetailClick = {
+                    navController.navigate("${DetailsDestination.route}/$it")
+                }
+            )
         }
         composable(DestinasiEntry.route){
             EntryPembeliScreen(
-                navigateSave = { navController.navigate(DetailsDestination.route) },
-                navigateBack = { navController.popBackStack()  }
+                navigateBack = { navController.popBackStack()  },
             )
         }
 
