@@ -36,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojek_079_105.R
 import com.example.finalprojek_079_105.data.Pembeli
+import com.example.finalprojek_079_105.data.SumberData
 import com.example.finalprojek_079_105.model.DetailViewModel
 import com.example.finalprojek_079_105.model.ItemDetailsUiState
 import com.example.finalprojek_079_105.model.PenyediaViewModel
@@ -69,6 +70,7 @@ fun DetailScreen(
                 title = stringResource(DetailsDestination.titleRes),
                 canNavigateBack = true,
                 navigateUp = navigateBack)
+
         }, floatingActionButton = {
             FloatingActionButton(onClick = { navigateToEditItem(uiState.value.detailPembeli.id) },
                 shape = MaterialTheme.shapes.medium,
@@ -135,7 +137,10 @@ fun ItemDetails(
     pembeli: Pembeli, modifier: Modifier = Modifier
 ){
     Card(
-        modifier = Modifier, colors = CardDefaults.cardColors(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(dimensionResource(id = R.dimen.padding_large)),
+        colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
