@@ -64,13 +64,13 @@ fun DetailScreen(
 ){
     val uiState = viewModel.uiState.collectAsState()
     val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             PembeliTopAppBar(
                 title = stringResource(DetailsDestination.titleRes),
                 canNavigateBack = true,
                 navigateUp = navigateBack)
-
         }, floatingActionButton = {
             FloatingActionButton(onClick = { navigateToEditItem(uiState.value.detailPembeli.id) },
                 shape = MaterialTheme.shapes.medium,
@@ -137,10 +137,7 @@ fun ItemDetails(
     pembeli: Pembeli, modifier: Modifier = Modifier
 ){
     Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(dimensionResource(id = R.dimen.padding_large)),
-        colors = CardDefaults.cardColors(
+        modifier = Modifier, colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )

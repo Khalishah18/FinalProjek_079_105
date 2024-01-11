@@ -190,7 +190,7 @@ fun FormInputPembeli(
                 Text(
                     text = payment,
                     style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_small))
+                    modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_medium))
                 )
             }
         }

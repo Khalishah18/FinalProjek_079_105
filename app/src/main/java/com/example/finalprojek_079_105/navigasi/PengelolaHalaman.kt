@@ -27,6 +27,7 @@ import com.example.finalprojek_079_105.ui.halaman.HomeScreen
 import com.example.finalprojek_079_105.ui.halaman.ItemEditDestination
 import com.example.finalprojek_079_105.ui.halaman.ItemEditScreen
 
+
 @Composable
 fun PembeliApp(navController: NavHostController = rememberNavController()){
     HostNavigasi(navController = navController)
@@ -53,7 +54,8 @@ fun PembeliTopAppBar(
                     )
                 }
             }
-        })
+        }
+    )
 
 }
 
@@ -68,12 +70,7 @@ fun HostNavigasi(
         modifier = Modifier
     ) {
         composable(DestinasiHome.route){
-            HomeScreen(
-                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
-                onDetailClick = {
-                    navController.navigate("${DetailsDestination.route}/$it")
-                }
-            )
+            HomeScreen(navigateHome = { navController.navigate(DestinasiEntry.route) })
         }
         composable(DestinasiEntry.route){
             EntryPembeliScreen(navigaeBack = { navController.popBackStack() },
