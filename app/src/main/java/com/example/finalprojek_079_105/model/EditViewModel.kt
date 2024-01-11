@@ -18,7 +18,7 @@ class EditViewModel (
 ): ViewModel(){
     var pembeliUiState by mutableStateOf(UIStatePembeli())
         private set
-    private val itemId: Int by lazy { checkNotNull(savedStateHandle[ItemEditDestination.itemIdArg]) }
+    private val itemId: Int = checkNotNull(savedStateHandle[ItemEditDestination.itemIdArg])
 
     init {
         viewModelScope.launch {
