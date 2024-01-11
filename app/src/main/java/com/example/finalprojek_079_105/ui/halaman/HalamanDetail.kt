@@ -36,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.finalprojek_079_105.R
 import com.example.finalprojek_079_105.data.Pembeli
-import com.example.finalprojek_079_105.data.SumberData
 import com.example.finalprojek_079_105.model.DetailViewModel
 import com.example.finalprojek_079_105.model.ItemDetailsUiState
 import com.example.finalprojek_079_105.model.PenyediaViewModel
@@ -64,7 +63,6 @@ fun DetailScreen(
 ){
     val uiState = viewModel.uiState.collectAsState()
     val coroutineScope = rememberCoroutineScope()
-
     Scaffold(
         topBar = {
             PembeliTopAppBar(

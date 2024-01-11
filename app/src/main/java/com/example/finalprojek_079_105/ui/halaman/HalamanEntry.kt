@@ -53,7 +53,8 @@ object DestinasiEntry: DestinasiNavigasi{
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntryPembeliScreen(
-    navigaeBack: () -> Unit,
+    navigateBack: () -> Unit,
+    navigateSave: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: EntryViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
@@ -78,7 +79,7 @@ fun EntryPembeliScreen(
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.savePembeli()
-                    navigaeBack()
+                    navigateBack()
                 }
             },
             modifier = Modifier
