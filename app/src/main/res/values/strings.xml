@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Pemesanan Album Kpop</string>
     <string name="entry_pembeli">Masukkan Data Diri</string>
-    <string name="deskripsi_no_item">Tap + untuk pemesanan</string>
+    <string name="deskripsi_no_item">Tap + untuk pemesanan album</string>
     <string name="bri">BRI</string>
     <string name="bca">BCA</string>
     <string name="mandiri">Mandiri</string>
@@ -19,14 +19,15 @@
     <string name="btn_submit">Submit</string>
     <string name="detail_pembeli">Detail Pembeli</string>
     <string name="edit_pembeli">Edit Pembeli</string>
+    <string name="album_selected">Anda Telah Memilih Album</string>
     <string name="back">Back</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
-    <string name="delete">Hapus</string>
-    <string name="update">Edit</string>
+    <string name="delete">Hapus Pesanan</string>
+    <string name="update">Edit Pesanan</string>
     <string name="confirm">Konfirmasi</string>
     <string name="cancel">Batal</string>
     <string name="next">Pesan Sekarang</string>
     <string name="attention">Perhatian</string>
-    <string name="tanya">Apakah anda yakin menghapus ini ?</string>
+    <string name="tanya">Apakah anda yakin menghapus pesanan ini ?</string>
 </resources>
