@@ -18,6 +18,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,6 +39,7 @@ import com.example.finalprojek_079_105.navigasi.PembeliTopAppBar
 object DestinasiAlbum : DestinasiNavigasi {
     override val route: String = "album"
     override val titleRes: Int = R.string.app_name
+    var selectedAlbumName by mutableStateOf<String?>(null)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -124,7 +128,10 @@ fun AlbumBody(
                 ){
                     Button(
                         modifier = Modifier.weight(1f),
-                        onClick = onNextButtonClicked
+                        onClick = {
+                            DestinasiAlbum.selectedAlbumName = "Black Pink - BORN PINK Album"
+                            onNextButtonClicked()
+                        }
                     ) {
                         Text(stringResource(R.string.next))
                     }
@@ -159,7 +166,10 @@ fun AlbumBody(
                 ){
                     Button(
                         modifier = Modifier.weight(1f),
-                        onClick = onNextButtonClicked
+                        onClick = {
+                            DestinasiAlbum.selectedAlbumName = "BTS - Love Your Self Album"
+                            onNextButtonClicked()
+                        }
                     ) {
                         Text(stringResource(R.string.next))
                     }

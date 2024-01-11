@@ -132,7 +132,7 @@ private fun DeleteConfirmationDialog(
 
 @Composable
 fun ItemDetails(
-    pembeli: Pembeli, modifier: Modifier = Modifier
+    pembeli: Pembeli, albumName: String? = null,modifier: Modifier = Modifier
 ){
     Card(
         modifier = Modifier, colors = CardDefaults.cardColors(
@@ -147,31 +147,40 @@ fun ItemDetails(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
         )
         {
-            ItemDetailsRow(labelResID = R.string.nama,
+            ItemDetailsRow(labelResID = R.string.nama1,
                 itemDetail = pembeli.nama,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 ))
-            ItemDetailsRow(labelResID = R.string.alamat,
+            ItemDetailsRow(labelResID = R.string.alamat1,
                 itemDetail = pembeli.alamat,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 ))
-            ItemDetailsRow(labelResID = R.string.telpon,
+            ItemDetailsRow(labelResID = R.string.telpon1,
                 itemDetail = pembeli.telpon,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 ))
-            ItemDetailsRow(labelResID = R.string.email,
+            ItemDetailsRow(labelResID = R.string.email1,
                 itemDetail = pembeli.email,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 ))
-            ItemDetailsRow(labelResID = R.string.payment,
+            ItemDetailsRow(labelResID = R.string.payment1,
                 itemDetail = pembeli.payment,
                 modifier = Modifier.padding(
                     horizontal = dimensionResource(id = R.dimen.padding_medium)
                 ))
+            albumName?.let {
+                ItemDetailsRow(
+                    labelResID = R.string.album_selected,
+                    itemDetail = it,
+                    modifier = Modifier.padding(
+                        horizontal = dimensionResource(id = R.dimen.padding_medium)
+                    )
+                )
+            }
         }
     }
 
@@ -191,7 +200,7 @@ private fun ItemDetailBody(
         var deleteConfirmationRequired by rememberSaveable {
             mutableStateOf(false)
         }
-        ItemDetails(pembeli = itemDetailsUiState.detailPembeli.toPembeli(), modifier = Modifier.fillMaxWidth())
+        ItemDetails(pembeli = itemDetailsUiState.detailPembeli.toPembeli(), albumName = DestinasiAlbum.selectedAlbumName, modifier = Modifier.fillMaxWidth())
 
         OutlinedButton(onClick = { deleteConfirmationRequired =  true},
             shape = MaterialTheme.shapes.small,
