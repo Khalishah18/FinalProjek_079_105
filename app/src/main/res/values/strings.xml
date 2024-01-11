@@ -19,7 +19,7 @@
     <string name="btn_submit">Submit</string>
     <string name="detail_pembeli">Detail Pembeli</string>
     <string name="edit_pembeli">Edit Pembeli</string>
-    <string name="album_selected">Anda Telah Memilih Album</string>
+    <string name="album_selected">Anda Telah Memilih Album :  </string>
     <string name="back">Back</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>

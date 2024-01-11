@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -135,7 +136,15 @@ fun ItemDetails(
     pembeli: Pembeli, albumName: String? = null,modifier: Modifier = Modifier
 ){
     Card(
-        modifier = Modifier, colors = CardDefaults.cardColors(
+        modifier = Modifier
+            .fillMaxWidth()
+            .size(
+                width = dimensionResource(id = R.dimen.card_width),
+                height = dimensionResource(id = R.dimen.card_height)
+            )
+            .padding(dimensionResource(id = R.dimen.padding_large)),
+
+            colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer
         )
@@ -143,8 +152,8 @@ fun ItemDetails(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(dimensionResource(id = R.dimen.padding_medium)),
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
+                .padding(dimensionResource(id = R.dimen.padding_extra_large)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_extra_large))
         )
         {
             ItemDetailsRow(labelResID = R.string.nama1,
