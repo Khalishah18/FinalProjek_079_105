@@ -2,16 +2,21 @@
     <string name="app_name">FinalProjek_079_105</string>
     <string name="entry_pembeli">Tambah Pembeli</string>
     <string name="deskripsi_no_item">Tidak ada data Pembeli. Tap + untuk menambah data</string>
+    <string name="bri">BRI</string>
+    <string name="bca">BCA</string>
+    <string name="bni">BNI</string>
+    <string name="mandiri">Mandiri</string>
+    <string name="bsi">BSI</string>
     <string name="nama">Nama Pembeli*</string>
     <string name="alamat">Alamat Pembeli*</string>
     <string name="telpon">No Handphone Pembeli*</string>
     <string name="email">Email Pembeli*</string>
-    <string name="payment">Metode Pembayaran*</string>
+    <string name="payment">Transfer*</string>
     <string name="nama1">Nama Pembeli :</string>
     <string name="alamat1">Alamat Pembeli :</string>
     <string name="telpon1">No Handphone Pembeli :</string>
     <string name="email1">Email Pembeli :</string>
-    <string name="payment1">Metode Pembayaran :</string>
+    <string name="payment1">Transfer:</string>
     <string name="required_field">* required fields</string>
     <string name="btn_submit">Submit</string>
     <string name="detail_pembeli">Detail Pembeli</string>
@@ -21,6 +26,9 @@
     <string name="no">Tidak</string>
     <string name="delete">Hapus</string>
     <string name="update">Edit</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="cancel">Batal</string>
+    <string name="next">Lanjut</string>
     <string name="attention">Perhatian</string>
     <string name="tanya">Apakah anda yakin menghapus ini ?</string>
 </resources>
