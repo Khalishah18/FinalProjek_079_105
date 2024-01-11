@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProjek_079_105</string>
+    <string name="app_name">Pemesanan Album Kpop</string>
     <string name="entry_pembeli">Tambah Pembeli</string>
     <string name="deskripsi_no_item">Tidak ada data Pembeli. Tap + untuk menambah data</string>
     <string name="bri">BRI</string>
@@ -28,7 +28,7 @@
     <string name="update">Edit</string>
     <string name="confirm">Konfirmasi</string>
     <string name="cancel">Batal</string>
-    <string name="next">Lanjut</string>
+    <string name="next">Pesan Sekarang</string>
     <string name="attention">Perhatian</string>
     <string name="tanya">Apakah anda yakin menghapus ini ?</string>
 </resources>
