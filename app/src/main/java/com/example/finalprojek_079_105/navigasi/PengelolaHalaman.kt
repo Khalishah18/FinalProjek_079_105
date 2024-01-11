@@ -81,7 +81,8 @@ fun HostNavigasi(
             HomeScreen( navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
                 onDetailClick = {
                     navController.navigate("${DetailsDestination.route}/$it")
-                }
+                },
+                onNavigateBack = { navController.popBackStack() }
             )
         }
         composable(DestinasiEntry.route){
@@ -96,14 +97,15 @@ fun HostNavigasi(
             arguments = listOf(navArgument(DetailsDestination.pembeliIdArg) {
                 type = NavType.IntType
             })
-        ) {
+        ) {backStackEntry ->
+            val itemId = backStackEntry.arguments?.getInt(DetailsDestination.pembeliIdArg)
+            itemId?.let {
             DetailScreen(
                 navigateToEditItem = {
-                    navController.navigate(("${ItemEditDestination.route}/$it")
-                    )
+                    navController.navigate("${ItemEditDestination.route}/$it")
                 },
                 navigateBack = { navController.popBackStack()},
-            )
+            )}
         }
 
         composable(
